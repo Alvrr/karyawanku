@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->nama();
-            
+            $table->string('nama');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->enum('peran', ['admin', 'karyawan']);
             $table->timestamps();
         });
     }
