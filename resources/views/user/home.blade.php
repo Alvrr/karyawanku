@@ -8,32 +8,32 @@
 </head>
 <body class="bg-gray-100 flex h-screen">
     <!-- Sidebar -->
-    <aside class="w-64 bg-white shadow-md h-full">
+    <aside class="w-64 bg-black shadow-md h-full">
         <div class="p-6">
-            <h2 class="text-2xl font-bold mb-5">Dashboard</h2>
+            <h2 class="text-2xl text-white font-bold mb-5">Dashboard</h2>
             <nav>
                 <ul>
                     <li class="mb-4">
-                        <a href="#" class="text-gray-700 font-semibold hover:text-blue-500">Home</a>
+                        <a href="#" class=" text-white font-semibold hover:text-blue-500">Home</a>
                     </li>
                     <li class="mb-4">
-                        <a href="profile" class="text-gray-700 font-semibold hover:text-blue-500">Profile</a>
+                        <a href="profile" class="text-white font-semibold hover:text-blue-500">Profile</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#" class="text-gray-700 font-semibold hover:text-blue-500">Settings</a>
+                        <a href="#" class="text-white font-semibold hover:text-blue-500">Settings</a>
                     </li>
                     <li class="mb-4">
-                        <a href="#" class="text-gray-700 font-semibold hover:text-blue-500">Logout</a>
+                        <a href="logout" class="text-white font-semibold hover:text-blue-500">Logout</a>
                     </li>
                 </ul>
             </nav>
         </div>
     </aside>
     <!-- Main Content -->
-    <div class="flex-1 p-6">
+    <div class="flex-1 p-6 bg-gray-800">
         <!-- Header -->
         <header class="mb-6">
-            <h1 class="text-3xl font-bold text-gray-900">Welcome to the KaryawanKU</h1>
+            <h1 class="text-3xl font-bold text-white">Welcome to the KaryawanKU</h1>
         </header>
         <!-- Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
@@ -77,6 +77,7 @@
                         <td class="py-2 px-4 border-b border-gray-200">bob@example.com</td>
                         <td class="py-2 px-4 border-b border-gray-200">Moderator</td>
                     </tr>
+                    
                 </tbody>
             </table>
         </div>

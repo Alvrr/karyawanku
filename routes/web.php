@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,18 +20,25 @@ Route::get('/login', function () {
 });
 
 //routing admin
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/banner', function () {
+    return view('admin.banner');
 });
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
-
 //routing user
 Route::get('/home', function () {
     return view('user.home');
 });
-
+Route::get('/admin', function () {
+    return view('admin.adminn');
+});
 Route::get('/profile', function () {
     return view('user.profile');
+});
+
+Route::get('/test-db', function () {
+    $users = User::all();
+    return $users;
+});
+//admin
+Route::get('/admin', function () {
+    return view('admin.admin');
 });
