@@ -13,9 +13,9 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * Atribut yang dapat diisi secara massal.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $fillable = [
         'name',
@@ -25,9 +25,9 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Atribut yang disembunyikan saat di-serialize.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $hidden = [
         'password',
@@ -35,16 +35,23 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast.
+     * Tipe data dari atribut tertentu.
      *
-     * @var array<string, string>
+     * @var array
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
-    public function employe()
+    /**
+     * Mendefinisikan relasi one-to-many dengan model Employe.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function employees()
     {
-       return $this->hasMany(Employe::class, 'id');
+        // Relasi one-to-many dengan model Employe
+        // Setiap user dapat memiliki banyak employe
+        return $this->hasMany(Employe::class, 'user_id');
     }
 }

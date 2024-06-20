@@ -9,14 +9,23 @@ class Position extends Model
 {
     use HasFactory;
 
+    // Menentukan nama tabel yang digunakan oleh model
     protected $table = "positions";
+
+    // Menentukan kolom yang dapat diisi secara massal
     protected $fillable = [
         'nama'
     ];
 
-
-    public function employe()
+    /**
+     * Mendefinisikan relasi one-to-many dengan model Employee.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function employees()
     {
-       return $this->hasMany(Employe::class, 'id');
+        // Relasi one-to-many dengan model Employee
+        // Setiap position dapat memiliki banyak employee
+        return $this->hasMany(Employee::class, 'position_id');
     }
 }
