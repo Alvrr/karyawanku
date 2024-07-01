@@ -16,6 +16,7 @@
                                 <th>Name</th>
                                 <th>Role</th>
                                 <th>Email</th>
+                                <th>Action</th> <!-- Tambahkan kolom Action untuk tombol delete -->
                             </tr>
                         </thead>
                         <tbody>
@@ -28,11 +29,10 @@
                                 <td>{{$user->role}}</td>
                                 <!-- Menampilkan email user -->
                                 <td>{{$user->email}}</td>
-                                <!-- Komentar: Bagian ini dapat digunakan untuk menambahkan aksi seperti edit atau delete -->
-                                {{-- <td>
-                                    <a href="{{ route('position.edit',['position_id'=>$position->id])}}" class="btn btn-secondary">Edit</a>
-                                    <a href="#" wire:click.prevent="deleteposition({{$position->id}})">Delete</a>
-                                </td> --}}
+                                <!-- Kolom Action untuk tombol delete -->
+                                <td class="col-2">
+                                    <a href="#" onclick="confirmDelete({{ $user->id }})" class="btn btn-secondary fa fa-trash"></a>
+                                </td>
                             </tr>   
                             @endforeach 
                         </tbody>
@@ -48,4 +48,21 @@
     new DataTable('#data-user-all', {
         order: [['2', 'desc']] // Mengurutkan berdasarkan kolom ketiga (Email) secara descending
     });
+
+    // Fungsi konfirmasi hapus dengan SweetAlert
+    function confirmDelete(userId) {
+        Swal.fire({
+            title: 'Apakah Kamu Yakin?',
+            text: "Kamu tidak dapat melihatnya lagi!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                @this.call('deleteUser', userId);
+            }
+        })
+    }
 </script>
