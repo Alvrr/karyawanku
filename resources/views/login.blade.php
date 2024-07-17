@@ -54,10 +54,11 @@
                             @enderror
                         </div>
                         <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
-                        <br><br>
-                        <label class="pull-right">
+                         <br><br>
+                        <!-- register -->
+                        <!--<label class="pull-right">
                             <a href="{{ route('register') }}" class="text-primary">Sign Up Here!</a>
-                        </label>
+                        </label> -->
                     </form>
                 </div>
             </div>
